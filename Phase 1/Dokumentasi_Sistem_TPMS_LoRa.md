@@ -562,16 +562,4 @@ diag                       # statistik pengiriman radio
 
 ---
 
-## 10. Saran Pengembangan Lebih Lanjut
 
-- **Enkripsi/otentikasi LoRa**: payload saat ini polos (plaintext), rawan spoofing jika ada pihak ketiga mengirim paket dengan `magic`+checksum yang valid. Bisa ditambah HMAC atau pre-shared key sederhana.
-- **TLS untuk MQTT** dan autentikasi username/password broker.
-- **OTA untuk Node** (saat ini hanya Gateway yang punya OTA; Node masih perlu USB untuk update).
-- **Store & forward di sisi Node**: saat ini Node hanya punya antrian RAM 64 slot tanpa persistensi; jika LoRa link putus lama, data lama yang ditimpa akan hilang permanen (berbeda dengan Gateway yang punya LittleFS).
-- **ACK/retry di link LoRa** Node→Gateway untuk memastikan pengiriman lebih reliable (saat ini bersifat *fire-and-forget*, tidak ada acknowledgement).
-- **Multi-gateway / failover** untuk area dengan jangkauan LoRa terbatas.
-- **Konfirmasi tertulis dari operator** sebelum auto-pair menimpa slot (saat ini sudah ada validasi slot kosong, jadi cukup aman, namun bisa ditambah konfirmasi 2 langkah).
-
----
-
-*Dokumentasi ini disusun berdasarkan analisis langsung terhadap source code firmware "TPMS Gateway v6" dan "TPMS Node v4.2".*
